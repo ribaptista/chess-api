@@ -1,7 +1,6 @@
 import uci from 'node-uci';
 import Koa from 'koa';
 import Router from '@koa/router';
-import serve from 'koa-static-server';
 import mount from 'koa-mount';
 import chess from 'chess.js'
 
@@ -32,9 +31,7 @@ const enginePath = './bin/komodo-10-linux';
     }
     return next();
   });
-  const view = serve({rootDir: 'static'});
   app
-    .use(mount('/game', view))
     .use(mount('/api', router.routes()))
     .use(router.allowedMethods());
   app.listen(3000);
