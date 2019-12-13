@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "@koa/router": "^8.0.5",
     "chess.js": "^0.10.2",
     "koa": "^2.11.0",

@@ -2,6 +2,7 @@ import uci from 'node-uci';
 import Koa from 'koa';
 import Router from '@koa/router';
 import mount from 'koa-mount';
+import cors from '@koa/cors';
 import chess from 'chess.js'
 
 const randomWhite = false;
@@ -33,7 +34,8 @@ const enginePath = './bin/komodo-10-linux';
   });
   app
     .use(mount('/api', router.routes()))
-    .use(router.allowedMethods());
+    .use(router.allowedMethods())
+    .use(cors());
   app.listen(3000);
 })();
 
